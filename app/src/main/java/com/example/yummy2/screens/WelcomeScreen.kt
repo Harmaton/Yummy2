@@ -16,12 +16,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.yummy2.viewmodels.WelcomeViewModel
 import com.google.accompanist.pager.*
 
 @ExperimentalPagerApi
 @Composable
-fun WelcomeScreen(navcontroller: NavHostController) {
+fun WelcomeScreen(navcontroller: NavHostController,
+welcomeViewModel: WelcomeViewModel = hiltViewModel()
+                  ) {
     val pages= listOf(
         OnboardingPage.First,
         OnboardingPage.Second,
@@ -46,6 +50,7 @@ fun WelcomeScreen(navcontroller: NavHostController) {
                .weight(1f)
        )
       FinishButton(modifier = Modifier.weight(1f), pagerstate = pagerState) {
+          welcomeViewModel.SaveOnBoardingState(completed = true)
        navcontroller.popBackStack()
           navcontroller.navigate(Screen.Home.route)
       }
