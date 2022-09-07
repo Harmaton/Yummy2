@@ -1,7 +1,7 @@
 package com.example.yummy2.di
 
 import android.content.Context
-import com.example.yummy2.data.DataStoreRepository
+import com.example.yummy2.datastore.DataStoreRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

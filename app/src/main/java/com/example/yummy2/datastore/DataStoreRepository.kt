@@ -1,4 +1,4 @@
-package com.example.yummy2.data
+package com.example.yummy2.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -10,7 +10,6 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
-import java.util.concurrent.Flow
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "on_boarding_pref")
 class DataStoreRepository (context: Context) {

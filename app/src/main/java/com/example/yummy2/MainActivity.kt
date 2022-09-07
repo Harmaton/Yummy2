@@ -20,15 +20,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen().setKeepOnScreenCondition{
+         installSplashScreen().setKeepOnScreenCondition{
             !splashViewModel.isloading.value
         }
-
 
         setContent {
             Yummy2Theme {
                 val screen by splashViewModel.startDestination
-             val navController = rememberNavController()
+                val navController = rememberNavController()
                 SetUpNavGraph(navcontroller = navController, startDestination = screen)
                 }
             }

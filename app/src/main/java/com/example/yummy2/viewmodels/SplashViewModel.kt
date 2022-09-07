@@ -5,7 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yummy2.data.DataStoreRepository
+import com.example.yummy2.datastore.DataStoreRepository
 import com.example.yummy2.screens.Screen
 import kotlinx.coroutines.launch
 import javax.inject.Inject

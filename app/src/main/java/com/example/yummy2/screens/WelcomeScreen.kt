@@ -4,10 +4,10 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +52,7 @@ welcomeViewModel: WelcomeViewModel = hiltViewModel()
       FinishButton(modifier = Modifier.weight(1f), pagerstate = pagerState) {
           welcomeViewModel.SaveOnBoardingState(completed = true)
        navcontroller.popBackStack()
-          navcontroller.navigate(Screen.Home.route)
+          navcontroller.navigate(Screen.Authentication.route)
       }
    }
 
@@ -106,15 +106,18 @@ onClick : () -> Unit
     Row(
         modifier = modifier.padding(horizontal = 40.dp),
         verticalAlignment = Alignment.Top,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         AnimatedVisibility(visible = pagerstate.currentPage == 2,
         modifier = Modifier.fillMaxWidth()
             ) {
             OutlinedButton(onClick = onClick,
-            colors = ButtonDefaults.buttonColors(contentColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(contentColor = Color.Green),
+                shape = RoundedCornerShape(12.dp)
                 ) {
               Text(text = "Get started")
+                Icon(imageVector = Icons.Default.ArrowForward,
+                    contentDescription = "done button")
             }
         }
     }
